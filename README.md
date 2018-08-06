@@ -1,9 +1,9 @@
 # CBAM-TensorFlow
 This is a Tensorflow implementation of ["CBAM: Convolutional Block Attention Module"](https://arxiv.org/pdf/1807.06521).
 This repository includes the implementation of ["Squeeze-and-Excitation Networks"](https://arxiv.org/pdf/1709.01507) as well, so that you can train and test among base CNN model, base model with CBAM block and base model with SE block.
-Base CNN models are *ResNext*, *Inception-V4*, and *Inception-ResNet-V2* where the original implementation is from [SENet-Tensorflow](https://github.com/taki0112/SENet-Tensorflow).
+Base CNN models are [*ResNext*](https://arxiv.org/abs/1611.05431), [*Inception-V4*, and *Inception-ResNet-V2*](https://arxiv.org/abs/1602.07261) where the implementation is revised from Junho Kim's code: [SENet-Tensorflow](https://github.com/taki0112/SENet-Tensorflow).
 
-If you want to use more sophisticated implementation and more base models to use, check the repository [CBAM-TensorFlow-Slim]() which aims to be compatible on the [TensorFlow-Slim image classification model library](https://github.com/tensorflow/models/tree/master/research/slim) and support more base models.
+If you want to use more sophisticated implementation and more base models to use, check the repository [CBAM-TensorFlow-Slim](https://github.com/kobiso/CBAM-tensorflow-slim) which aims to be compatible on the [TensorFlow-Slim image classification model library](https://github.com/tensorflow/models/tree/master/research/slim) and support more base models.
 
 ## CBAM: Convolutional Block Attention Module
 **CBAM** proposes an architectural unit called *"Convolutional Block Attention Module" (CBAM)* block to improve representation power by using attention mechanism: focusing on important features and supressing unnecessary ones.
@@ -50,7 +50,7 @@ You can run **CBAM_block** or **SE_block** added models in the below list by add
 To change *reduction ratio*, you can add an argument `--reduction_ratio=8`.
 
 ## Train a Model
-You can simply run the model by executing following scripts.
+You can simply run a model by executing following scripts.
 - `sh train_ResNext.sh`
 - `sh train_inception_resnet_v2.sh`
 - `sh train_inception_v4.sh`
@@ -101,14 +101,14 @@ CUDA_VISIBLE_DEVICES=0 python ResNeXt.py \
 ```
 
 ## Related Works
-- [CBAM-TensorFlow-Slim](https://github.com/kobiso/CBAM-tensorflow-slim)
-- [SENet-TensorFlow-Slim](https://github.com/kobiso/SENet-tensorflow-slim)
+- Repository: [CBAM-TensorFlow-Slim](https://github.com/kobiso/CBAM-tensorflow-slim)
+- Repository: [SENet-TensorFlow-Slim](https://github.com/kobiso/SENet-tensorflow-slim)
 
 ## Reference
-- [CBAM: Convolutional Block Attention Module](https://arxiv.org/pdf/1807.06521)
-- [Squeeze-and-Excitation Networks](https://arxiv.org/pdf/1709.01507)
-- [TensorFlow-Slim image classification model library](https://github.com/tensorflow/models/tree/master/research/slim)
-- [SENet-Tensorflow](https://github.com/taki0112/SENet-Tensorflow)
+- Paper: [CBAM: Convolutional Block Attention Module](https://arxiv.org/pdf/1807.06521)
+- Paper: [Squeeze-and-Excitation Networks](https://arxiv.org/pdf/1709.01507)
+- Repository: [TensorFlow-Slim image classification model library](https://github.com/tensorflow/models/tree/master/research/slim)
+- Repository: [SENet-Tensorflow](https://github.com/taki0112/SENet-Tensorflow)
   
 ## Author
 Byung Soo Ko / kobiso62@gmail.com
