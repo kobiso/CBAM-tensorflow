@@ -194,10 +194,10 @@ def main(args):
                 x = self.transition_layer(x, out_dim=out_dim, scope='trans_layer_'+layer_num+'_'+str(i))
                 # SE_block
                 if attention_module == 'se_block':
-                    x = se_block(x, 'se_'+layer_num+'_'+str(i))
+                    x = se_block(x, 'se_'+layer_num+'_'+str(i), ratio=reduction_ratio)
                 # CBAM_block
                 if attention_module == 'cbam_block':
-                    x = cbam_block(x, 'cbam_'+layer_num+'_'+str(i))
+                    x = cbam_block(x, 'cbam_'+layer_num+'_'+str(i), ratio=reduction_ratio)
 
                 if flag is True :
                     pad_input_x = Average_pooling(input_x)

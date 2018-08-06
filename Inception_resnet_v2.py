@@ -167,10 +167,10 @@ def main(args):
 
                 # SE_block
                 if attention_module == 'se_block':
-                    x = se_block(x, scope+'_se_block')
+                    x = se_block(x, scope+'_se_block', ratio=reduction_ratio)
                 # CBAM_block
                 if attention_module == 'cbam_block':
-                    x = cbam_block(x, scope+'_cbam_block')
+                    x = cbam_block(x, scope+'_cbam_block', ratio=reduction_ratio)
 
 
                 x = init + x
@@ -197,10 +197,10 @@ def main(args):
 
                 # SE_block
                 if attention_module == 'se_block':
-                    x = se_block(x, scope+'_se_block')
+                    x = se_block(x, scope+'_se_block', ratio=reduction_ratio)
                 # CBAM_block
                 if attention_module == 'cbam_block':
-                    x = cbam_block(x, scope+'_cbam_block')
+                    x = cbam_block(x, scope+'_cbam_block', ratio=reduction_ratio)
 
                 x = init + x
 
@@ -226,10 +226,10 @@ def main(args):
 
                 # SE_block
                 if attention_module == 'se_block':
-                    x = se_block(x, scope+'_se_block')
+                    x = se_block(x, scope+'_se_block', ratio=reduction_ratio)
                 # CBAM_block
                 if attention_module == 'cbam_block':
-                    x = cbam_block(x, scope+'_cbam_block')
+                    x = cbam_block(x, scope+'_cbam_block', ratio=reduction_ratio)
 
                 x = init + x
 

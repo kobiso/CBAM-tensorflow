@@ -274,10 +274,10 @@ def main(args):
                 x = self.Inception_A(x, scope='Inception_A'+str(i))
                 # SE_block
                 if attention_module == 'se_block':
-                    x = se_block(x, 'A'+'_se_block'+str(i))
+                    x = se_block(x, 'A'+'_se_block'+str(i), ratio=reduction_ratio)
                 # CBAM_block
                 if attention_module == 'cbam_block':
-                    x = cbam_block(x, 'A'+'_cbam_block'+str(i))
+                    x = cbam_block(x, 'A'+'_cbam_block'+str(i), ratio=reduction_ratio)
 
             x = self.Reduction_A(x, scope='Reduction_A')
 
@@ -285,10 +285,10 @@ def main(args):
                 x = self.Inception_B(x, scope='Inception_B'+str(i))
                 # SE_block
                 if attention_module == 'se_block':
-                    x = se_block(x, 'B'+'_se_block'+str(i))
+                    x = se_block(x, 'B'+'_se_block'+str(i), ratio=reduction_ratio)
                 # CBAM_block
                 if attention_module == 'cbam_block':
-                    x = cbam_block(x, 'B'+'_cbam_block'+str(i))
+                    x = cbam_block(x, 'B'+'_cbam_block'+str(i), ratio=reduction_ratio)
 
             x = self.Reduction_B(x, scope='Reduction_B')
 
@@ -296,10 +296,10 @@ def main(args):
                 x = self.Inception_C(x, scope='Inception_C'+str(i))
                 # SE_block
                 if attention_module == 'se_block':
-                    x = se_block(x, 'C'+'_se_block'+str(i))
+                    x = se_block(x, 'C'+'_se_block'+str(i), ratio=reduction_ratio)
                 # CBAM_block
                 if attention_module == 'cbam_block':
-                    x = cbam_block(x, 'C'+'_cbam_block'+str(i))
+                    x = cbam_block(x, 'C'+'_cbam_block'+str(i), ratio=reduction_ratio)
 
             x = Global_Average_Pooling(x)
             x = Dropout(x, rate=0.2, training=self.training)
