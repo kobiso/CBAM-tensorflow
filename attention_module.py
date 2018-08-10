@@ -32,12 +32,11 @@ def se_block(residual, name, ratio=8):
                                  name='recover_fc')    
     assert excitation.get_shape()[1:] == (1,1,channel)
     # top = tf.multiply(bottom, se, name='scale')
-    scale = residual * excitation 
-    print ("SE Hello")
+    scale = residual * excitation     
   return scale
 
 
-def cbam_block(input_feature, name, ratio=16):
+def cbam_block(input_feature, name, ratio=8):
   """Contains the implementation of Convolutional Block Attention Module(CBAM) block.
   As described in https://arxiv.org/abs/1807.06521.
   """
@@ -48,7 +47,7 @@ def cbam_block(input_feature, name, ratio=16):
     print ("CBAM Hello")
   return attention_feature
 
-def channel_attention(input_feature, name, ratio=16):
+def channel_attention(input_feature, name, ratio=8):
   
   kernel_initializer = tf.contrib.layers.variance_scaling_initializer()
   bias_initializer = tf.constant_initializer(value=0.0)
@@ -57,7 +56,7 @@ def channel_attention(input_feature, name, ratio=16):
     
     channel = input_feature.get_shape()[-1]
     avg_pool = tf.reduce_mean(input_feature, axis=[1,2], keepdims=True)
-    # avg_pool = tf.layers.average_pooling2d(input_feature, pool_size=[input_size,input_size], strides=[input_size,input_size])     
+        
     assert avg_pool.get_shape()[1:] == (1,1,channel)
     avg_pool = tf.layers.dense(inputs=avg_pool,
                                  units=channel//ratio,
@@ -75,8 +74,7 @@ def channel_attention(input_feature, name, ratio=16):
                                  reuse=None)    
     assert avg_pool.get_shape()[1:] == (1,1,channel)
 
-    max_pool = tf.reduce_max(input_feature, axis=[1,2], keepdims=True)
-    # max_pool = tf.layers.max_pooling2d(input_feature, pool_size=[input_size,input_size], strides=[input_size,input_size])
+    max_pool = tf.reduce_max(input_feature, axis=[1,2], keepdims=True)    
     assert max_pool.get_shape()[1:] == (1,1,channel)
     max_pool = tf.layers.dense(inputs=max_pool,
                                  units=channel//ratio,
@@ -104,7 +102,7 @@ def spatial_attention(input_feature, name):
     assert max_pool.get_shape()[-1] == 1
     concat = tf.concat([avg_pool,max_pool], 3)
     assert concat.get_shape()[-1] == 2
-    #BasicConv(2, 1, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
+    
     concat = tf.layers.conv2d(concat,
                               filters=1,
                               kernel_size=[kernel_size,kernel_size],
@@ -112,7 +110,7 @@ def spatial_attention(input_feature, name):
                               padding="same",
                               activation=None,
                               kernel_initializer=kernel_initializer,
-                              bias_initializer=tf.zeros_initializer(),
+                              use_bias=False,
                               name='conv')
     assert concat.get_shape()[-1] == 1
     concat = tf.sigmoid(concat, 'sigmoid')

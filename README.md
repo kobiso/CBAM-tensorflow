@@ -1,6 +1,6 @@
 # CBAM-TensorFlow
 This is a Tensorflow implementation of ["CBAM: Convolutional Block Attention Module"](https://arxiv.org/pdf/1807.06521).
-This repository includes the implementation of ["Squeeze-and-Excitation Networks"](https://arxiv.org/pdf/1709.01507) as well, so that you can train and test among base CNN model, base model with CBAM block and base model with SE block.
+This repository includes the implementation of ["Squeeze-and-Excitation Networks"](https://arxiv.org/pdf/1709.01507) as well, so that you can train and compare among base CNN model, base model with CBAM block and base model with SE block.
 Base CNN models are [*ResNext*](https://arxiv.org/abs/1611.05431), [*Inception-V4*, and *Inception-ResNet-V2*](https://arxiv.org/abs/1602.07261) where the implementation is revised from Junho Kim's code: [SENet-Tensorflow](https://github.com/taki0112/SENet-Tensorflow).
 
 If you want to use more sophisticated implementation and more base models to use, check the repository **"[CBAM-TensorFlow-Slim](https://github.com/kobiso/CBAM-tensorflow-slim)"** which aims to be compatible on the [TensorFlow-Slim image classification model library](https://github.com/tensorflow/models/tree/master/research/slim) and support more base models.
