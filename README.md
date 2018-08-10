@@ -102,6 +102,7 @@ CUDA_VISIBLE_DEVICES=0 python ResNeXt.py \
 
 ## Related Works
 - Repository: [CBAM-TensorFlow-Slim](https://github.com/kobiso/CBAM-tensorflow-slim)
+- Repository: [CBAM-Keras](https://github.com/kobiso/CBAM-keras)
 - Repository: [SENet-TensorFlow-Slim](https://github.com/kobiso/SENet-tensorflow-slim)
 
 ## Reference
