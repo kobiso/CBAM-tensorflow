@@ -101,6 +101,7 @@ CUDA_VISIBLE_DEVICES=0 python ResNeXt.py \
 ```
 
 ## Related Works
+- Blog: [CBAM: Convolutional Block Attention Module](https://kobiso.github.io//research/research-CBAM/)
 - Repository: [CBAM-TensorFlow-Slim](https://github.com/kobiso/CBAM-tensorflow-slim)
 - Repository: [CBAM-Keras](https://github.com/kobiso/CBAM-keras)
 - Repository: [SENet-TensorFlow-Slim](https://github.com/kobiso/SENet-tensorflow-slim)
